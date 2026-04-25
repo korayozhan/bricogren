@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriçÖğren - Türkçe</title>
+<meta name="theme-color" content="#3a3a3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BriçÖğren">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-table: #2d7a4f;
+    --cream: #f5f0e8;
+    --ink: #1a1a1a;
+    --muted: #666;
+    --accent: #8b2020;
+    --border: #ddd;
+    --bold-color: #1a1a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #e8e4dc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+
+  .book {
+    background: var(--cream);
+    width: 100%;
+    max-width: 420px;
+    min-height: 700px;
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* NAV BAR */
+  .navbar {
+    background: #3a3a3a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    min-height: 52px;
+  }
+  .navbar .title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    flex: 1;
+    text-align: center;
+  }
+  .navbar .nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    min-width: 32px;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    flex: 1;
+    padding: 20px 18px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-family: 'Lora', serif;
+  }
+
+  .content p { margin-bottom: 16px; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { font-weight: 700; }
+  .content em { font-style: italic; }
+
+  .chapter-title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+  }
+  .chapter-label {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .chapter-title {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* CARD TABLE */
+  .table-diagram {
+    background: var(--green-table);
+    border-radius: 6px;
+    padding: 10px 8px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .table-info {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 3px;
+    line-height: 1.4;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .score-box {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 3px;
+    line-height: 1.4;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .hand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+  }
+
+  .suit-row {
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-mini {
+    background: white;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    width: 16px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1;
+  }
+
+  .card-mini.pik { color: #111; }
+  .card-mini.kor { color: #cc0000; }
+  .card-mini.trefl { color: #1155aa; }
+  .card-mini.karo { color: #e07000; }
+
+  .hands-layout {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto;
+    gap: 4px;
+    padding: 32px 4px 32px 4px;
+    min-height: 160px;
+    align-items: center;
+  }
+
+  .hand-north { grid-column: 2; grid-row: 1; }
+  .hand-west  { grid-column: 1; grid-row: 2; }
+  .hand-center { grid-column: 2; grid-row: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 50px; }
+  .hand-east  { grid-column: 3; grid-row: 2; }
+  .hand-south { grid-column: 2; grid-row: 3; }
+
+  /* played cards in center */
+  .played-cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 2px;
+    align-items: center;
+    justify-items: center;
+  }
+  .played-card {
+    background: white;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 4px;
+    min-width: 24px;
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .played-card.pik { color: #111; }
+  .played-card.kor { color: #cc0000; }
+  .played-card.trefl { color: #1155aa; }
+  .played-card.karo { color: #e07000; }
+
+  /* card rank display */
+  .rank-table {
+    background: white;
+    border: 2px solid #2d6a4f;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 12px 0;
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .rank-row { display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+  }
+  .footer .page-num {
+    font-size: 14px;
+    color: var(--muted);
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .footer .nav-arrow {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: color 0.15s;
+  }
+  .footer .nav-arrow:hover { color: var(--ink); }
+  .footer .nav-arrow:disabled { opacity: 0.2; cursor: default; }
+  .footer .home-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 4px 8px;
+  }
+
+  /* progress bar */
+  .progress-bar {
+    height: 4px;
+    background: #ddd;
+    position: relative;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: #888;
+    transition: width 0.3s;
+  }
+
+  /* bullet list */
+  .content ul { margin: 0 0 16px 20px; }
+  .content li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="book">
+
+  <div class="navbar">
+    <button class="nav-btn" id="back-btn" onclick="goBack()">&#8592;</button>
+    <span class="title" id="nav-title">BriçÖğren'e Hoş Geldiniz</span>
+    <button class="nav-btn">&#9776;</button>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-bar-fill" id="progress-fill" style="width:5%"></div>
+  </div>
+
+  <div class="content" id="page-content"></div>
+
+  <div class="footer">
+    <button class="nav-arrow" id="prev-btn" onclick="changePage(-1)">&#9664;</button>
+    <button class="home-btn">&#128214;</button>
+    <button class="nav-arrow" id="next-btn" onclick="changePage(1)">&#9654;</button>
+  </div>
+
+  <div style="text-align:center; padding: 4px 0 8px; font-size: 12px; color: #999; font-family: 'Source Sans 3', sans-serif;">
+    <span id="page-label">Sayfa 1</span>
+  </div>
+
+</div>
+
+<script>
+const pages = [
+  // PAGE 1 - Chapter title
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<div class="chapter-title-page">
+      <div class="chapter-label">Bölüm 1</div>
+      <div class="chapter-title">BriçÖğren'e Hoş Geldiniz</div>
+    </div>`
+  },
+  // PAGE 2
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<p>BriçÖğren'e hoş geldiniz! Bu uygulama size dünyaca sevilen kart oyunu <strong>Briç</strong>'i oynamayı öğretecek.</p>
+<p>Başlamadan önce bir dakikanızı ayırarak arayüzü tanıyın. Ekranın altındaki okları kullanarak sayfalar arasında ileri geri gidebilirsiniz. Aynı zamanda sola ya da sağa kaydırarak da sayfa çevirebilirsiniz.</p>
+<p>Hızlıca geri ya da ileri atlamak istiyorsanız, menüden <strong>Basılı Tut ile Geç Modu</strong>'nu etkinleştirip ok tuşlarından birine bir süre basılı tutabilirsiniz.</p>`
+  },
+  // PAGE 3
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<p>Ekranın altındaki ana sayfa düğmesine ya da sol üst köşedeki geri düğmesine dokunursanız, belirli bir dersin bölüm listesine geri dönebilirsiniz. Her iki düğmeye tekrar dokunduğunuzda ders listesine dönersiniz.</p>
+<p>Sağ üst köşedeki menü düğmesine dokunarak çeşitli seçenekleri ayarlayabilirsiniz; geri düğmesine dokunarak menüyü kapatıp okumakta olduğunuz sayfaya dönebilirsiniz.</p>
+<p>BriçÖğren boyunca <strong>Briç</strong> terimleri <strong>kalın</strong> yazıyla gösterilmektedir. Herhangi bir <strong>kalın</strong> ifadeye dokunarak o terimin kısa bir açıklamasını görebilirsiniz. Şimdi deneyin!</p>`
+  },
+  // PAGE 4
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<p>Adım <strong>Wesley May</strong>. BriçÖğren'i 2017 yılında iki temel nedenle yazmaya başladım.</p>
+<p>1) O dönemde mobil cihazlarda, özellikle yeni başlayanlar için, eğitici Briç içeriği son derece azdı. Briç <em>oynamayı</em> sağlayan pek çok uygulama vardı; ancak nasıl oynayacağınızı <em>öğreten</em> çok fazla uygulama yoktu. Sonraki yıllarda birkaç kaynak daha ortaya çıkmış olsa da bunlar hâlâ oldukça sınırlı.</p>
+<p>2) Geleneksel yayınlarda da yeni başlayanlar için yazılmış kitapların hiçbiri tam olarak istediğim yaklaşımı sunmuyordu. Yeni başlayanlar için hazırlanan materyaller, öğrendiğiniz tekniklerin altında yatan temel mantığı çoğunlukla atlıyor. BriçÖğren'de amacım, aldığınız her kararın nedenini her zaman tam olarak anlamanızı sağlamak.</p>`
+  },
+  // PAGE 5
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<p>Bununla birlikte, yeni oyuncular için gerçekten beğendiğim iki kaynak var:</p>
+<ul>
+<li>American Contract Bridge League'in <strong>Briç Oynamayı Öğrenin</strong> yazılımı (Fred Gitelman). Ben de briçi bu yazılımla öğrendim ve öğretim felsefesiyle tam anlamıyla örtüşüyor. Ne var ki yalnızca Windows bilgisayarlarda çalışıyor ve içerik biraz eski kalmış.</li>
+<li><strong>Yeni Başlayanlar için Briç</strong>, Eddie Kantar. Basılı bir kitap arıyorsanız birinci tavsiyem budur.</li>
+</ul>
+<p>Her ikisi de mükemmel kaynaklar. BriçÖğren ile amacım, aynı kalitedeki içeriği mobil cihazlara taşımak.</p>`
+  },
+  // PAGE 6
+  {
+    navTitle: "BriçÖğren'e Hoş Geldiniz",
+    html: `<p>BriçÖğren birden fazla dersten oluşur ve her ders bölümlere ayrılır. İlk ders olan <strong>Briç'e Giriş</strong>, size oyunun kurallarını ve tarihini öğretecek.</p>
+<p>Temel kuralları öğrendikten sonra <strong>Deklerasyona Giriş</strong> dersinde temel kart oynama tekniklerini öğreneceksiniz.</p>
+<p>Temel oyunu kavradıktan sonra <strong>Temel Yapıcı İhale</strong> dersinde <strong>ihale</strong> yapmayı öğrenebilirsiniz. Sonraki ihale dersleri daha ileri teknikler içerecek.</p>
+<p><strong>Savunmaya Giriş</strong> dersi <strong>savunma</strong>nın temellerini öğretecek olup <strong>Deklerasyona Giriş</strong>'ten sonra herhangi bir noktada ele alınabilir; ancak önce temel ihaleyi kavramanızı öneririm.</p>
+<p>Her zaman yeni içerikler üzerinde çalışıyorum ve ilerleyen dönemde yeni bölümler eklenecek. Şimdi sayfayı çevirin ve Briç öğrenmeye başlayalım!</p>`
+  },
+  // PAGE 7 - Chapter 2 title
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="chapter-title-page">
+      <div class="chapter-label">Bölüm 2</div>
+      <div class="chapter-title">Briç Nedir?</div>
+    </div>`
+  },
+  // PAGE 8
+  {
+    navTitle: "Briç Nedir?",
+    html: `<p><strong>Briç</strong>, daha resmi adıyla <strong>Kontrat Briç</strong>, dört kişilik bir kart oyunudur. Whist, Euchre, Kalplar, Maça, Tichu, Belote, Rook ve daha pek çok oyuna benzer bir <strong>el alma oyunudur</strong>.</p>
+<p>Daha önce bir el alma oyunu oynadıysanız Briç'in mekaniklerini çok tanıdık bulacaksınız. Hiç oynamadıysanız, öğrenmek üzeresiniz!</p>`
+  },
+  // PAGE 9
+  {
+    navTitle: "Briç Nedir?",
+    html: `<p>Dört oyuncu kare bir masanın her kenarına oturur ve geleneksel olarak ana yönlere göre adlandırılır: <strong>Kuzey</strong>, <strong>Doğu</strong>, <strong>Güney</strong> ve <strong>Batı</strong>. Kuzey ile Güney birbirinin karşısında, Doğu ile Batı da aynı şekilde karşılıklı oturur.</p>
+<p>Bazı el alma oyunları tek başına ya da "boğaz boğaza" oynanır; tüm oyuncular birbirine karşı yarışır. Briç ise bir <strong>ortaklık oyunudur</strong>. Oyuncular, ikişer kişilik iki ortaklığa ayrılır. Karşılıklı oturan oyuncular ortak olduğundan, iki ortaklık <strong>Kuzey-Güney</strong> ve <strong>Doğu-Batı</strong> olarak adlandırılır.</p>`
+  },
+  // PAGE 10
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 0<br>DB: 0</div>
+      <div class="hands-layout">
+        <!-- North -->
+        <div class="hand hand-north">
+          <div class="suit-row">
+            ${mini(['4','3','2'],'pik')}${mini(['5','4','3','2'],'kor')}${mini(['4','3','2'],'trefl')}${mini(['4','3','2'],'karo')}
+          </div>
+        </div>
+        <!-- West -->
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div>
+          <div style="color:#ff8888;">K Q J 9 ♥</div>
+          <div style="color:#88aaff;">J 10 ♣</div>
+          <div style="color:#ffaa44;">K J 7 5 ♦</div>
+        </div>
+        <!-- Center empty -->
+        <div class="hand-center"></div>
+        <!-- East -->
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6; text-align:right;">
+          <div>A K 6 5 ♠</div>
+          <div style="color:#ff8888;">10 8 ♥</div>
+          <div style="color:#88aaff;">9 8 7 6 5 ♣</div>
+          <div style="color:#ffaa44;">10 9 ♦</div>
+        </div>
+        <!-- South -->
+        <div class="hand hand-south">
+          <div class="suit-row">
+            ${mini(['Q','J','7'],'pik')}${mini(['A','7','6'],'kor')}${mini(['A','K','Q','A','Q','8','6'],'trefl')}${mini(['6'],'karo')}
+          </div>
+        </div>
+      </div>
+    </div>
+<p>Briç bir dizi <strong>dağıtım</strong> halinde oynanır. Her dağıtımda standart bir desteden 52 kartın tamamı dağıtılır; her oyuncu 13 kart alır.</p>
+<p>BriçÖğren'de her zaman <strong>Güney</strong> koltuğunda oturacaksınız ve kartlarınız altta gösterilecek. Rakipleriniz solunuzda <strong>Batı</strong>, sağınızda <strong>Doğu</strong>'dur. <strong>Kuzey</strong> ortağınızdır ve kartları üstte gösterilir.</p>
+<p>Normalde diğer eller gizli olurdu; ancak bu örnekte dört eli de göreceğiz.</p>`
+  },
+  // PAGE 11 (sayfa 12 orijinal)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 0<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center; line-height:1.6;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 2 ♣ &nbsp; 4 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div>
+          <div style="color:#ff8888;">K Q J 9 ♥</div>
+          <div style="color:#88aaff;">J 10 ♣ ♥ 9</div>
+          <div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-card karo" style="font-size:14px; padding:4px 8px;">5 ♦</div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6; text-align:right;">
+          <div>A K 6 5 ♠</div>
+          <div style="color:#ff8888;">10 8 ♥</div>
+          <div style="color:#88aaff;">9 8 7 6 5 ♣</div>
+          <div style="color:#ffaa44;">10 9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center; line-height:1.6;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A K Q A Q 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Bu ilk <strong>elde</strong> Batı, ♦5'i oynayarak çıkış yapar. Çıkış kartını kimin belirleyeceğini bu bölümün ilerleyen kısımlarında göreceğiz.</p>
+<p>İlk oynayan oyuncuya <strong>açılış lideri</strong>, oynadığı karta ise <strong>çıkış kartı</strong> denir.</p>
+<p>Sayfayı hem kaydırarak hem de alttaki düğmelere basarak çevirebilseniz de bir dağıtım oynanırken düğmeleri kullanmanızı öneririm. Bu sayede masa diyagramı yerinden oynamaz.</p>`
+  },
+  // PAGE 12 (sayfa 13 orijinal)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 1<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center; line-height:1.6;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 2 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div>
+          <div style="color:#ff8888;">K Q J 9 ♥</div>
+          <div style="color:#88aaff;">J 10 ♣ ♥ 9</div>
+          <div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div class="played-card karo">4 ♦</div><div></div>
+            <div class="played-card karo">5 ♦</div><div class="played-card karo" style="color:#e07000;">10 ♦</div><div></div>
+            <div></div><div class="played-card karo">Q ♦</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6; text-align:right;">
+          <div>A K 6 5 ♠</div>
+          <div style="color:#ff8888;">10 8 ♥</div>
+          <div style="color:#88aaff;">9 8 7 6 5 ♣</div>
+          <div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center; line-height:1.6;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A K Q A Q 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Her oyuncu, <strong>renk takip ederek</strong> istediği bir karo oynar.</p>`
+  },
+  // PAGE 13 (sayfa 14)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram" style="min-height:200px;">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 1<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 2 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">K Q J 9 ♥</div><div style="color:#88aaff;">J 10 ♣ ♥ 9</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center" style="align-items:center; justify-content:center;">
+          <div class="played-cards">
+            <div></div><div class="played-card karo">4 ♦</div><div></div>
+            <div class="played-card karo">5 ♦</div><div class="played-card karo">10 ♦</div><div></div>
+            <div></div><div class="played-card karo">Q ♦</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">9 8 7 6 5 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A K Q A Q 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Oynanan renkteki en yüksek kartı oynayan oyuncu o eli kazanır ve bir sonraki eli açar. Her renkte kartlar en yüksekten en düşüğe şu sırayla sıralanır:</p>
+<div class="rank-table">
+  <div class="rank-row">
+    <span style="color:#111;">A K Q J 10 9 8 7 6 5 4 3 2 ♠</span>
+  </div>
+</div>
+<p>İlk beş kart (A K Q J 10) <strong>onörler</strong>, geri kalanlar ise <strong>spot kartlar</strong> ya da kısaca <strong>spotlar</strong> olarak adlandırılır.</p>`
+  },
+  // PAGE 14 (sayfa 15)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 1<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 2 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">K Q J 9 ♥</div><div style="color:#88aaff;">J 10 ♣ ♥ 9</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div class="played-card karo">4 ♦</div><div></div>
+            <div class="played-card karo">5 ♦</div><div class="played-card karo">10 ♦</div><div></div>
+            <div></div><div class="played-card karo">Q ♦</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">9 8 7 6 5 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A K Q A Q 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Bu <strong>elde</strong> en yüksek kart Güney'in ♦K'sıdır, dolayısıyla Güney eli kazanır.</p>
+<p>Masanın sol alt köşesinde o ana kadar alınan el sayısını görebilirsiniz. Kuzey-Güney'in 1 eli, Doğu-Batı'nın 0 eli var. Her iki ortağın kazandığı eller birlikte sayılır.</p>
+<p>Güney bu eli kazandığından, bir sonraki eli açmak için istediği kartı oynayabilir.</p>`
+  },
+  // PAGE 15 (sayfa 16)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 2<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 2 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">K Q J 9 ♥</div><div style="color:#88aaff;">10 ♣ ♥ 9</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div class="played-card trefl">2 ♣</div><div></div>
+            <div class="played-card trefl">J ♣</div><div class="played-card trefl">9 ♣</div><div></div>
+            <div></div><div class="played-card trefl">A ♣</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">8 7 6 5 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; K Q A 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Güney ♣A'yı oynar ve diğer herkes <strong>renk takip ederek</strong> birer trefl oynar. As herhangi bir renkteki en yüksek kart olduğundan Güney yeniden kazanır.</p>`
+  },
+  // PAGE 16 (sayfa 17)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 3<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">K Q J 9 ♥</div><div style="color:#ffaa44;">K J 7 ♦</div><div style="color:#ffaa44;">♦ 7</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div class="played-card trefl">3 ♣</div><div></div>
+            <div class="played-card trefl">10 ♣</div><div class="played-card trefl">5 ♣</div><div></div>
+            <div></div><div class="played-card trefl">K ♣</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">8 7 6 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; Q A 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Güney ♣K'yı oynayarak bir el daha kazanır.</p>`
+  },
+  // PAGE 17 (sayfa 18)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 3<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">K Q J 9 ♥</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div style="color:white; font-size:13px; text-align:center; padding:8px;">
+            <div class="played-card trefl" style="margin:auto;">Q ♣</div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">8 7 6 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Güney ♣Q'yu oynar.</p>
+<p>Batı'nın artık trefl kalmamıştır ve istediği kartı oynayabilir.</p>`
+  },
+  // PAGE 18 (sayfa 19)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 3<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">Q J 9 ♥</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div></div><div></div>
+            <div></div>
+            <div style="display:flex;flex-direction:column;gap:2px;align-items:center;">
+              <div class="played-card kor">K ♥</div>
+              <div class="played-card trefl">Q ♣</div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">8 7 6 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Batı ♥K'yı oynamayı seçer. Kral, kızdan daha yüksek olmasına rağmen Batı bu eli kazanamaz. Yalnızca oynanan renkteki bir kart eli kazanabilir.</p>
+<p>Rengi takip edemeyip kazanamayacak farklı bir renkteki kartı oynadığınızda buna <strong>defos</strong> denir. Burada Batı ♥K'yı <strong>defos</strong> etmektedir.</p>`
+  },
+  // PAGE 19 (sayfa 20)
+  {
+    navTitle: "Briç Nedir?",
+    html: `<div class="table-diagram">
+      <div class="table-info">KT<br>Güney</div>
+      <div class="score-box">KG: 4<br>DB: 0</div>
+      <div class="hands-layout">
+        <div class="hand hand-north" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>4 3 2 ♠ &nbsp; 5 4 3 2 ♥ &nbsp; 4 3 ♣ &nbsp; 3 2 ♦</div>
+        </div>
+        <div class="hand hand-west" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; line-height:1.6;">
+          <div>10 9 8 ♠</div><div style="color:#ff8888;">Q J 9 ♥</div><div style="color:#ffaa44;">K J 7 ♦</div>
+        </div>
+        <div class="hand-center">
+          <div class="played-cards">
+            <div></div><div class="played-card trefl">4 ♣</div><div></div>
+            <div class="played-card trefl">K ♣</div><div class="played-card trefl">6 ♣</div><div></div>
+            <div></div><div class="played-card trefl">Q ♣</div><div></div>
+          </div>
+        </div>
+        <div class="hand hand-east" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:right; line-height:1.6;">
+          <div>A K 6 5 ♠</div><div style="color:#ff8888;">10 8 ♥</div><div style="color:#88aaff;">8 7 ♣</div><div style="color:#ffaa44;">9 ♦</div>
+        </div>
+        <div class="hand hand-south" style="font-size:11px; color:white; font-family:'Source Sans 3',sans-serif; text-align:center;">
+          <div>Q J 7 ♠ &nbsp; A 7 6 ♥ &nbsp; A 8 6 ♣ &nbsp; 6 ♦</div>
+        </div>
+      </div>
+    </div>
+<p>Diğer iki oyuncu da birer trefl oynar ve Güney bu eli de kazanır.</p>`
+  }
+];
+
+// helper to generate mini card spans
+function mini(ranks, suit) {
+  const sym = {pik:'♠', kor:'♥', trefl:'♣', karo:'♦'};
+  return ranks.map(r => `<span class="card-mini ${suit}">${r}${sym[suit]}</span>`).join('');
+}
+
+let currentPage = 0;
+
+function render() {
+  const p = pages[currentPage];
+  document.getElementById('page-content').innerHTML = p.html;
+  document.getElementById('nav-title').textContent = p.navTitle;
+  document.getElementById('page-label').textContent = `Sayfa ${currentPage + 1}`;
+  document.getElementById('prev-btn').disabled = currentPage === 0;
+  document.getElementById('next-btn').disabled = currentPage === pages.length - 1;
+  const pct = ((currentPage + 1) / pages.length) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function changePage(dir) {
+  const next = currentPage + dir;
+  if (next >= 0 && next < pages.length) {
+    currentPage = next;
+    render();
+    document.querySelector('.content').scrollTop = 0;
+  }
+}
+
+function goBack() {
+  if (currentPage > 0) changePage(-1);
+}
+
+render();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
