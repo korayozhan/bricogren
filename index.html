@@ -2002,28 +2002,28 @@ const pages = [
     const n=[{suit:'pik',ranks:['4', '3']},{suit:'kor',ranks:['5']},{suit:'karo',ranks:['3']}];
     const e=[{suit:'pik',ranks:['A', '6', '5']},{suit:'trefl',ranks:['7']}];
     const s=[{suit:'pik',ranks:['Q', 'J']},{suit:'karo',ranks:['A', '8']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 4', north:n, south:s, west:w, east:e, played:[{r:'8',s:'trefl',d:'e'},{r:'6',s:'karo',d:'s'},{r:'8',s:'pik',d:'w'},{r:'2',s:'karo',d:'n'}]}) + `<p>Doğu 11 treflin oynandığını gördü ve artık hiç kimsenin trefl kalmadığını biliyor. Bu yüzden Doğu trefl 8'i oynar ve kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 4', north:n, south:s, west:w, east:e, played:[{r:'8',s:'trefl',d:'east'},{r:'6',s:'karo',d:'south'},{r:'8',s:'pik',d:'west'},{r:'2',s:'karo',d:'north'}]}) + `<p>Doğu 11 treflin oynandığını gördü ve artık hiç kimsenin trefl kalmadığını biliyor. Bu yüzden Doğu trefl 8'i oynar ve kazanır.</p>`; } },
   // 24 — app page 26
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'karo',ranks:['K', 'J', '7']}];
     const n=[{suit:'pik',ranks:['4', '3']},{suit:'kor',ranks:['5']}];
     const e=[{suit:'pik',ranks:['A', '6', '5']}];
     const s=[{suit:'pik',ranks:['Q', 'J']},{suit:'karo',ranks:['A']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 5', north:n, south:s, west:w, east:e, played:[{r:'7',s:'trefl',d:'e'},{r:'8',s:'karo',d:'s'},{r:'9',s:'pik',d:'w'},{r:'3',s:'karo',d:'n'}]}) + `<p>Doğu küçük bir trefl ile bir el daha kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 5', north:n, south:s, west:w, east:e, played:[{r:'7',s:'trefl',d:'east'},{r:'8',s:'karo',d:'south'},{r:'9',s:'pik',d:'west'},{r:'3',s:'karo',d:'north'}]}) + `<p>Doğu küçük bir trefl ile bir el daha kazanır.</p>`; } },
   // 25 — app page 27
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'karo',ranks:['K', 'J']}];
     const n=[{suit:'pik',ranks:['4']},{suit:'kor',ranks:['5']}];
     const e=[{suit:'pik',ranks:['6', '5']}];
     const s=[{suit:'pik',ranks:['J']},{suit:'karo',ranks:['A']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 6', north:n, south:s, west:w, east:e, played:[{r:'A',s:'pik',d:'e'},{r:'Q',s:'pik',d:'s'},{r:'7',s:'karo',d:'w'},{r:'3',s:'pik',d:'n'}]}) + `<p>Doğu pik A'yı oynar ve bir el daha kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 5<br>DB: 6', north:n, south:s, west:w, east:e, played:[{r:'A',s:'pik',d:'east'},{r:'Q',s:'pik',d:'south'},{r:'7',s:'karo',d:'west'},{r:'3',s:'pik',d:'north'}]}) + `<p>Doğu pik A'yı oynar ve bir el daha kazanır.</p>`; } },
   // 26 — app page 28
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'karo',ranks:['K']}];
     const n=[{suit:'kor',ranks:['5']}];
     const e=[{suit:'pik',ranks:['5']}];
     const s=[{suit:'karo',ranks:['A']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 6<br>DB: 6', north:n, south:s, west:w, east:e, played:[{r:'6',s:'pik',d:'e'},{r:'J',s:'pik',d:'s'},{r:'J',s:'karo',d:'w'},{r:'4',s:'pik',d:'n'}]}) + `<p>Doğu küçük bir pik oynar ve Güney kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 6<br>DB: 6', north:n, south:s, west:w, east:e, played:[{r:'6',s:'pik',d:'east'},{r:'J',s:'pik',d:'south'},{r:'J',s:'karo',d:'west'},{r:'4',s:'pik',d:'north'}]}) + `<p>Doğu küçük bir pik oynar ve Güney kazanır.</p>`; } },
   // 27 — app page 29
   { nav:"Briç Nedir?", html:`<p>Son olarak Güney karo A'yı oynar ve son eli kazanır.</p>` },
   // 28 — app page 30
@@ -2050,21 +2050,21 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7', '5']},{suit:'kor',ranks:['4']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['A', 'K', '8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q', '5', '2']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'J',s:'kor',d:'w'}]}) + `<p>Bir önceki dağıtımda olduğu gibi Batı çıkış yapar. Bu sefer Batı kör J'yi seçer.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'J',s:'kor',d:'west'}]}) + `<p>Bir önceki dağıtımda olduğu gibi Batı çıkış yapar. Bu sefer Batı kör J'yi seçer.</p>`; } },
   // 33 — app page 35
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '6', '3']},{suit:'karo',ranks:['4']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7', '5']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['A', '8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q', '2']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'kor',d:'n'},{r:'K',s:'kor',d:'e'},{r:'5',s:'kor',d:'s'}]}) + `<p>Doğu kör K ile eli kazanır.<br />Hiç koz oynanmadı, dolayısıyla her zamanki gibi oynanan renkteki en yüksek kart kazandı.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'kor',d:'north'},{r:'K',s:'kor',d:'east'},{r:'5',s:'kor',d:'south'}]}) + `<p>Doğu kör K ile eli kazanır.<br />Hiç koz oynanmadı, dolayısıyla her zamanki gibi oynanan renkteki en yüksek kart kazandı.</p>`; } },
   // 34 — app page 36
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'karo',ranks:['4']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7', '5']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'kor',d:'e'},{r:'2',s:'kor',d:'s'},{r:'6',s:'kor',d:'w'}]}) + `<p>Doğu, kör A oynayarak bir sonraki eli kazanmaya çalışır.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'kor',d:'east'},{r:'2',s:'kor',d:'south'},{r:'6',s:'kor',d:'west'}]}) + `<p>Doğu, kör A oynayarak bir sonraki eli kazanmaya çalışır.</p>`; } },
   // 35 — app page 37
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'karo',ranks:['4']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
@@ -2078,35 +2078,35 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 1<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'5',s:'pik',d:'n'}]}) + `<p>Kuzey gerçekten de küçük bir pik oynar ve eli kazanır.<br />Koz olmayan bir renk oynanıp siz koz oynadığınızda buna <strong>çaka yapmak</strong> denir. Burada Kuzey kör A'yı pik 5 ile <strong>çaka yapıyor</strong>.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 1<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'5',s:'pik',d:'north'}]}) + `<p>Kuzey gerçekten de küçük bir pik oynar ve eli kazanır.<br />Koz olmayan bir renk oynanıp siz koz oynadığınızda buna <strong>çaka yapmak</strong> denir. Burada Kuzey kör A'yı pik 5 ile <strong>çaka yapıyor</strong>.</p>`; } },
   // 37 — app page 39
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'karo',d:'n'},{r:'5',s:'karo',d:'e'},{r:'J',s:'karo',d:'s'},{r:'4',s:'karo',d:'w'}]}) + `<p>Kuzey bir sonraki elde karo A'yı oynar ve kazanır.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'karo',d:'north'},{r:'5',s:'karo',d:'east'},{r:'J',s:'karo',d:'south'},{r:'4',s:'karo',d:'west'}]}) + `<p>Kuzey bir sonraki elde karo A'yı oynar ve kazanır.</p>`; } },
   // 38 — app page 40
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'2',s:'karo',d:'n'},{r:'K',s:'karo',d:'e'}]}) + `<p>Kuzey küçük bir karo oynar; Doğu karo K oynayarak eli kazanmaya çalışır.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'2',s:'karo',d:'north'},{r:'K',s:'karo',d:'east'}]}) + `<p>Kuzey küçük bir karo oynar; Doğu karo K oynayarak eli kazanmaya çalışır.</p>`; } },
   // 39 — app page 41
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'pik',d:'s'}]}) + `<p>Kuzey iki el önce yaptığı gibi Güney de pik 4 ile <strong>çaka yaparak</strong> Doğu'nun eli kazanmasını engeller.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'pik',d:'south'}]}) + `<p>Kuzey iki el önce yaptığı gibi Güney de pik 4 ile <strong>çaka yaparak</strong> Doğu'nun eli kazanmasını engeller.</p>`; } },
   // 40 — app page 42
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'6',s:'pik',d:'w'}]}) + `<p>Ama Batı'nın da karosu kalmadı ve <strong>daha yüksek</strong> bir pik oynayabilir.<br />Batı pik 6 ile bu eli kazanır; çünkü bu eldeki en yüksek kozdur. Batı'nın Güney'in pik 4'ünü <strong>üst-çaka yaptığını</strong> söyleriz.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'6',s:'pik',d:'west'}]}) + `<p>Ama Batı'nın da karosu kalmadı ve <strong>daha yüksek</strong> bir pik oynayabilir.<br />Batı pik 6 ile bu eli kazanır; çünkü bu eldeki en yüksek kozdur. Batı'nın Güney'in pik 4'ünü <strong>üst-çaka yaptığını</strong> söyleriz.</p>`; } },
   // 41 — app page 43
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
@@ -2120,60 +2120,60 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 3<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'kor',d:'w'},{r:'6',s:'karo',d:'n'},{r:'8',s:'kor',d:'e'},{r:'Q',s:'kor',d:'s'}]}) + `<p>Batı kör 10'u oynar ve Güney kazanır. Kuzey pik oynayarak da kazanabilirdi; ancak Güney'in en yüksek kalan körü olduğundan buna gerek yok.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 3<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'kor',d:'west'},{r:'6',s:'karo',d:'north'},{r:'8',s:'kor',d:'east'},{r:'Q',s:'kor',d:'south'}]}) + `<p>Batı kör 10'u oynar ve Güney kazanır. Kuzey pik oynayarak da kazanabilirdi; ancak Güney'in en yüksek kalan körü olduğundan buna gerek yok.</p>`; } },
   // 43 — app page 45
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['9', '3']},{suit:'trefl',ranks:['Q', '6', '4']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7']},{suit:'trefl',ranks:['5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'trefl',ranks:['A', '10', '8']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 4<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'7',s:'trefl',d:'s'},{r:'2',s:'trefl',d:'w'},{r:'K',s:'trefl',d:'n'},{r:'3',s:'trefl',d:'e'}]}) + `<p>Güney, küçük bir trefl oynayarak Kuzey'in trefl K'ına gider.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 4<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'7',s:'trefl',d:'south'},{r:'2',s:'trefl',d:'west'},{r:'K',s:'trefl',d:'north'},{r:'3',s:'trefl',d:'east'}]}) + `<p>Güney, küçük bir trefl oynayarak Kuzey'in trefl K'ına gider.</p>`; } },
   // 44 — app page 46
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['9', '3']},{suit:'trefl',ranks:['Q', '6']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'trefl',ranks:['10', '8']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 5<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'5',s:'trefl',d:'n'},{r:'9',s:'trefl',d:'e'},{r:'A',s:'trefl',d:'s'},{r:'4',s:'trefl',d:'w'}]}) + `<p>Kuzey de Güney'in trefl A'ına küçük bir trefl oynayarak geri döner.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 5<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'5',s:'trefl',d:'north'},{r:'9',s:'trefl',d:'east'},{r:'A',s:'trefl',d:'south'},{r:'4',s:'trefl',d:'west'}]}) + `<p>Kuzey de Güney'in trefl A'ına küçük bir trefl oynayarak geri döner.</p>`; } },
   // 45 — app page 47
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['9', '3']},{suit:'trefl',ranks:['Q']}];
     const n=[{suit:'pik',ranks:['K', 'J']},{suit:'karo',ranks:['10', '8', '7']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['7']},{suit:'karo',ranks:['Q', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'trefl',ranks:['10']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 6<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'8',s:'trefl',d:'s'},{r:'6',s:'trefl',d:'w'},{r:'7',s:'pik',d:'n'},{r:'J',s:'trefl',d:'e'}]}) + `<p>Güney küçük bir trefl oynar ve Kuzey pik oynayarak <strong>çakar</strong>.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 6<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'8',s:'trefl',d:'south'},{r:'6',s:'trefl',d:'west'},{r:'7',s:'pik',d:'north'},{r:'J',s:'trefl',d:'east'}]}) + `<p>Güney küçük bir trefl oynar ve Kuzey pik oynayarak <strong>çakar</strong>.</p>`; } },
   // 46 — app page 48
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['9']},{suit:'trefl',ranks:['Q']}];
     const n=[{suit:'pik',ranks:['K', 'J']},{suit:'karo',ranks:['10', '8']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['7']},{suit:'karo',ranks:['Q', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10']},{suit:'trefl',ranks:['10']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 7<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'7',s:'karo',d:'n'},{r:'9',s:'karo',d:'e'},{r:'9',s:'pik',d:'s'},{r:'3',s:'kor',d:'w'}]}) + `<p>Kuzey küçük bir karo oynar ve Güney benzer şekilde <strong>çakar</strong>.<br />Batı'nın karosu kalmadı ve pik oynayabilir; ancak Batı'nın hiçbir piki Güney'in pik 9'unu yenemez.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 7<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'7',s:'karo',d:'north'},{r:'9',s:'karo',d:'east'},{r:'9',s:'pik',d:'south'},{r:'3',s:'kor',d:'west'}]}) + `<p>Kuzey küçük bir karo oynar ve Güney benzer şekilde <strong>çakar</strong>.<br />Batı'nın karosu kalmadı ve pik oynayabilir; ancak Batı'nın hiçbir piki Güney'in pik 9'unu yenemez.</p>`; } },
   // 47 — app page 49
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['9']}];
     const n=[{suit:'pik',ranks:['K']},{suit:'karo',ranks:['10', '8']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'karo',ranks:['Q', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 8<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'trefl',d:'s'},{r:'Q',s:'trefl',d:'w'},{r:'J',s:'pik',d:'n'},{r:'7',s:'kor',d:'e'}]}) + `<p>Güney trefl 10'u oynar ve Kuzey yine <strong>çakar</strong>. Bir önceki elde olduğu gibi Doğu pik oynayabilir; ancak Kuzey'in pik J'sini yenemez.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 8<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'trefl',d:'south'},{r:'Q',s:'trefl',d:'west'},{r:'J',s:'pik',d:'north'},{r:'7',s:'kor',d:'east'}]}) + `<p>Güney trefl 10'u oynar ve Kuzey yine <strong>çakar</strong>. Bir önceki elde olduğu gibi Doğu pik oynayabilir; ancak Kuzey'in pik J'sini yenemez.</p>`; } },
   // 48 — app page 50
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3']},{suit:'kor',ranks:['9']}];
     const n=[{suit:'karo',ranks:['10', '8']}];
     const e=[{suit:'karo',ranks:['Q', '3']}];
     const s=[{suit:'pik',ranks:['Q', '10']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 9<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'K',s:'pik',d:'n'},{r:'8',s:'pik',d:'e'},{r:'A',s:'pik',d:'s'},{r:'2',s:'pik',d:'w'}]}) + `<p>Kuzey pik K'yı oynar. Güney ise belki biraz mizahi bir niyetle Kuzey'in kazanmasına izin vermek yerine pik A ile kazanır.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 9<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'K',s:'pik',d:'north'},{r:'8',s:'pik',d:'east'},{r:'A',s:'pik',d:'south'},{r:'2',s:'pik',d:'west'}]}) + `<p>Kuzey pik K'yı oynar. Güney ise belki biraz mizahi bir niyetle Kuzey'in kazanmasına izin vermek yerine pik A ile kazanır.</p>`; } },
   // 49 — app page 51
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'kor',ranks:['9']}];
     const n=[{suit:'karo',ranks:['10']}];
     const e=[{suit:'karo',ranks:['Q']}];
     const s=[{suit:'pik',ranks:['10']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 10<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'Q',s:'pik',d:'s'},{r:'3',s:'pik',d:'w'},{r:'8',s:'karo',d:'n'},{r:'3',s:'karo',d:'e'}]}) + `<p>Güney sondan bir önceki eli pik Q ile kazanır...</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 10<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'Q',s:'pik',d:'south'},{r:'3',s:'pik',d:'west'},{r:'8',s:'karo',d:'north'},{r:'3',s:'karo',d:'east'}]}) + `<p>Güney sondan bir önceki eli pik Q ile kazanır...</p>`; } },
   // 50 — app page 52
   { nav:"Briç Nedir?", get html() {
     const w=[], n=[], e=[], s=[];
-    return tbl({info:'♠<br>Güney', score:'KG: 11<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'pik',d:'s'},{r:'9',s:'kor',d:'w'},{r:'10',s:'karo',d:'n'},{r:'Q',s:'karo',d:'e'}]}) + `<p>...ve son eli de pik 10 ile kazanır.<br />Bu sefer Kuzey-Güney 11 el, Doğu-Batı yalnızca 2 el aldı.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 11<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'10',s:'pik',d:'south'},{r:'9',s:'kor',d:'west'},{r:'10',s:'karo',d:'north'},{r:'Q',s:'karo',d:'east'}]}) + `<p>...ve son eli de pik 10 ile kazanır.<br />Bu sefer Kuzey-Güney 11 el, Doğu-Batı yalnızca 2 el aldı.</p>`; } },
   // 51 — app page 53
   { nav:"Briç Nedir?", html:`<p>Kart oyununun kurallarını özetleyelim:<br />&#36; <strong>Açılış lideri</strong> istediği kartı ilk <strong>ele</strong> oynar.<br />&#36; Her elde tüm oyuncular saat yönünde birer kart oynar. İlk oynamayan oyuncular, oynanan rengi <strong>renk takip ederek</strong> oynamalıdır; o renkten kartları yoksa istedikleri kartı oynayabilirler.<br />&#36; <strong>Koz rengi</strong> yoksa ya da elde hiç koz oynanmamışsa, oynanan renkteki en yüksek kart eli kazanır.<br />&#36; Elde bir veya daha fazla koz oynanmışsa en yüksek koz eli kazanır.</p>` },
   // 52 — app page 54
@@ -2193,28 +2193,28 @@ const pages = [
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['4', '3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8', '7']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['A', '6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'karo',d:'w'}]}) + `<p>Batı karo K'yı oynar ve Kuzey kartlarını yüz üstü yere koyar.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'karo',d:'west'}]}) + `<p>Batı karo K'yı oynar ve Kuzey kartlarını yüz üstü yere koyar.</p>`; } },
   // 56 — app page 58
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['10', '9', '8']},{suit:'kor',ranks:['K', 'Q', 'J']},{suit:'karo',ranks:['Q', 'J', '10']},{suit:'trefl',ranks:['J', '10', '9']}];
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8', '7']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['A', '6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'4',s:'karo',d:'n'}]}) + `<p><strong>Dekleran</strong> olarak Güney hem Güney hem de Kuzey kartlarını kontrol eder. Güney Kuzey'in elinden karo 4'ü oynamayı seçer.<br />Canlı bir oyunda hangi kartı istediğinizi <strong>dummy'ye</strong> söylersiniz.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'4',s:'karo',d:'north'}]}) + `<p><strong>Dekleran</strong> olarak Güney hem Güney hem de Kuzey kartlarını kontrol eder. Güney Kuzey'in elinden karo 4'ü oynamayı seçer.<br />Canlı bir oyunda hangi kartı istediğinizi <strong>dummy'ye</strong> söylersiniz.</p>`; } },
   // 57 — app page 59
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['10', '9', '8']},{suit:'kor',ranks:['K', 'Q', 'J']},{suit:'karo',ranks:['Q', 'J', '10']},{suit:'trefl',ranks:['J', '10', '9']}];
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['A', '6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'7',s:'karo',d:'e'}]}) + `<p>Doğu karo 7'yi oynar; şimdi Güney kendi elinden bir kart daha oynamayı seçer.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'7',s:'karo',d:'east'}]}) + `<p>Doğu karo 7'yi oynar; şimdi Güney kendi elinden bir kart daha oynamayı seçer.</p>`; } },
   // 58 — app page 60
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['10', '9', '8']},{suit:'kor',ranks:['K', 'Q', 'J']},{suit:'karo',ranks:['Q', 'J', '10']},{suit:'trefl',ranks:['J', '10', '9']}];
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 1<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'A',s:'karo',d:'s'}]}) + `<p>Güney karo A'yı oynamayı seçer ve eli kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 1<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'A',s:'karo',d:'south'}]}) + `<p>Güney karo A'yı oynamayı seçer ve eli kazanır.</p>`; } },
   // 59 — app page 61
   { nav:"Briç Nedir?", html:`<p>Her iki el setini de kontrol etmek <strong>dekleran</strong> için güçlü bir avantajdır. <strong>Savunmacılar</strong> ise başlangıçta karanlıktadır.<br /><strong>Dekleran oyunu</strong> ağırlıklı olarak planlamaya odaklanır.<br /><strong>Savunma</strong> ise iletişime dayanır — hangi kartları oynadığınız aracılığıyla ortağınızla iletişim kurarsınız.<br />Birlikte, <strong>dekleran oyunu</strong> ve <strong>savunma</strong> Briç'in üç temel boyutundan ikisini oluşturur.</p>` },
   // 60 — app page 62
