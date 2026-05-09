@@ -1967,7 +1967,7 @@ const pages = [
     const s=[{suit:'pik',ranks:['Q','J','7']},{suit:'kor',ranks:['A','7','6']},{suit:'karo',ranks:['A','8','6']}];
     const w=[{suit:'pik',ranks:['10','9','8']},{suit:'kor',ranks:['Q','J','9']},{suit:'karo',ranks:['K','J','7']}];
     const e=[{suit:'pik',ranks:['A','K','6','5']},{suit:'kor',ranks:['10','8']},{suit:'trefl',ranks:['8','7']},{suit:'karo',ranks:['9']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 4<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'trefl',d:'west'},{r:'4',s:'trefl',d:'north'},{r:'6',s:'trefl',d:'east'},{r:'Q',s:'trefl',d:'south'}]}) + `<p>Diğer iki oyuncu da birer trefl oynar ve Güney bu eli de kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 4<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'Q',s:'trefl',d:'south'},{r:'K',s:'kor',d:'west'},{r:'4',s:'trefl',d:'north'},{r:'6',s:'trefl',d:'east'}]}) + `<p>Diğer iki oyuncu da birer trefl oynar ve Güney bu eli de kazanır.</p>`; } },
   // 20 — ♥A trick (NS:5): South leads ♥A, all follow hearts
   { nav:"Briç Nedir?", get html() {
     const n=[{suit:'pik',ranks:['4','3','2']},{suit:'kor',ranks:['5','4','3']},{suit:'trefl',ranks:['4','3']},{suit:'karo',ranks:['3','2']}];
@@ -2057,7 +2057,7 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7', '5']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['A', '8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q', '2']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'kor',d:'north'},{r:'K',s:'kor',d:'east'},{r:'5',s:'kor',d:'south'}]}) + `<p>Doğu kör K ile eli kazanır.<br />Hiç koz oynanmadı, dolayısıyla her zamanki gibi oynanan renkteki en yüksek kart kazandı.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'J',s:'kor',d:'west'},{r:'4',s:'kor',d:'north'},{r:'K',s:'kor',d:'east'},{r:'5',s:'kor',d:'south'}]}) + `<p>Doğu kör K ile eli kazanır.<br />Hiç koz oynanmadı, dolayısıyla her zamanki gibi oynanan renkteki en yüksek kart kazandı.</p>`; } },
   // 34 — app page 36
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'karo',ranks:['4']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
@@ -2071,14 +2071,14 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7', '5']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[]}) + `<p>Koz rengi olmasaydı Doğu bu eli kazanırdı. Ancak pikler koz olduğundan Kuzey bir pik oynayabilir ve kazanabilir. Kuzey'in piki ne kadar düşük olursa olsun, eldeki en yüksek koz olacak ve kazanacaktır.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 0<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'kor',d:'east'},{r:'2',s:'kor',d:'south'},{r:'6',s:'kor',d:'west'}]}) + `<p>Koz rengi olmasaydı Doğu bu eli kazanırdı. Ancak pikler koz olduğundan Kuzey bir pik oynayabilir ve kazanabilir. Kuzey'in piki ne kadar düşük olursa olsun, eldeki en yüksek koz olacak ve kazanacaktır.</p>`; } },
   // 36 — app page 38
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'karo',ranks:['4']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['A', '10', '8', '7', '6', '2']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['K', 'Q', '9', '3', '5']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9', '4']},{suit:'kor',ranks:['Q']},{suit:'karo',ranks:['J']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 1<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'5',s:'pik',d:'north'}]}) + `<p>Kuzey gerçekten de küçük bir pik oynar ve eli kazanır.<br />Koz olmayan bir renk oynanıp siz koz oynadığınızda buna <strong>çaka yapmak</strong> denir. Burada Kuzey kör A'yı pik 5 ile <strong>çaka yapıyor</strong>.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 1<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'A',s:'kor',d:'east'},{r:'2',s:'kor',d:'south'},{r:'6',s:'kor',d:'west'},{r:'5',s:'pik',d:'north'}]}) + `<p>Kuzey gerçekten de küçük bir pik oynar ve eli kazanır.<br />Koz olmayan bir renk oynanıp siz koz oynadığınızda buna <strong>çaka yapmak</strong> denir. Burada Kuzey kör A'yı pik 5 ile <strong>çaka yapıyor</strong>.</p>`; } },
   // 37 — app page 39
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['6', '3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
@@ -2099,14 +2099,14 @@ const pages = [
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'4',s:'pik',d:'south'}]}) + `<p>Kuzey iki el önce yaptığı gibi Güney de pik 4 ile <strong>çaka yaparak</strong> Doğu'nun eli kazanmasını engeller.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 1', north:n, south:s, west:w, east:e, played:[{r:'2',s:'karo',d:'north'},{r:'K',s:'karo',d:'east'},{r:'4',s:'pik',d:'south'}]}) + `<p>Kuzey iki el önce yaptığı gibi Güney de pik 4 ile <strong>çaka yaparak</strong> Doğu'nun eli kazanmasını engeller.</p>`; } },
   // 40 — app page 42
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
     const n=[{suit:'pik',ranks:['K', 'J', '7']},{suit:'karo',ranks:['10', '8', '7', '6']},{suit:'trefl',ranks:['K', '5']}];
     const e=[{suit:'pik',ranks:['8']},{suit:'kor',ranks:['8', '7']},{suit:'karo',ranks:['Q', '9', '3']},{suit:'trefl',ranks:['J', '9', '3']}];
     const s=[{suit:'pik',ranks:['A', 'Q', '10', '9']},{suit:'kor',ranks:['Q']},{suit:'trefl',ranks:['A', '10', '8', '7']}];
-    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'6',s:'pik',d:'west'}]}) + `<p>Ama Batı'nın da karosu kalmadı ve <strong>daha yüksek</strong> bir pik oynayabilir.<br />Batı pik 6 ile bu eli kazanır; çünkü bu eldeki en yüksek kozdur. Batı'nın Güney'in pik 4'ünü <strong>üst-çaka yaptığını</strong> söyleriz.</p>`; } },
+    return tbl({info:'♠<br>Güney', score:'KG: 2<br>DB: 2', north:n, south:s, west:w, east:e, played:[{r:'2',s:'karo',d:'north'},{r:'K',s:'karo',d:'east'},{r:'4',s:'pik',d:'south'},{r:'6',s:'pik',d:'west'}]}) + `<p>Ama Batı'nın da karosu kalmadı ve <strong>daha yüksek</strong> bir pik oynayabilir.<br />Batı pik 6 ile bu eli kazanır; çünkü bu eldeki en yüksek kozdur. Batı'nın Güney'in pik 4'ünü <strong>üst-çaka yaptığını</strong> söyleriz.</p>`; } },
   // 41 — app page 43
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['3', '2']},{suit:'kor',ranks:['10', '9', '3']},{suit:'trefl',ranks:['Q', '6', '4', '2']}];
@@ -2200,21 +2200,21 @@ const pages = [
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8', '7']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['A', '6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'4',s:'karo',d:'north'}]}) + `<p><strong>Dekleran</strong> olarak Güney hem Güney hem de Kuzey kartlarını kontrol eder. Güney Kuzey'in elinden karo 4'ü oynamayı seçer.<br />Canlı bir oyunda hangi kartı istediğinizi <strong>dummy'ye</strong> söylersiniz.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'karo',d:'west'},{r:'4',s:'karo',d:'north'}]}) + `<p><strong>Dekleran</strong> olarak Güney hem Güney hem de Kuzey kartlarını kontrol eder. Güney Kuzey'in elinden karo 4'ü oynamayı seçer.<br />Canlı bir oyunda hangi kartı istediğinizi <strong>dummy'ye</strong> söylersiniz.</p>`; } },
   // 57 — app page 59
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['10', '9', '8']},{suit:'kor',ranks:['K', 'Q', 'J']},{suit:'karo',ranks:['Q', 'J', '10']},{suit:'trefl',ranks:['J', '10', '9']}];
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['A', '6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'7',s:'karo',d:'east'}]}) + `<p>Doğu karo 7'yi oynar; şimdi Güney kendi elinden bir kart daha oynamayı seçer.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 0<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'karo',d:'west'},{r:'4',s:'karo',d:'north'},{r:'7',s:'karo',d:'east'}]}) + `<p>Doğu karo 7'yi oynar; şimdi Güney kendi elinden bir kart daha oynamayı seçer.</p>`; } },
   // 58 — app page 60
   { nav:"Briç Nedir?", get html() {
     const w=[{suit:'pik',ranks:['10', '9', '8']},{suit:'kor',ranks:['K', 'Q', 'J']},{suit:'karo',ranks:['Q', 'J', '10']},{suit:'trefl',ranks:['J', '10', '9']}];
     const n=[{suit:'pik',ranks:['4', '3', '2']},{suit:'kor',ranks:['5', '4', '3', '2']},{suit:'karo',ranks:['3', '2']},{suit:'trefl',ranks:['4', '3', '2']}];
     const e=[{suit:'pik',ranks:['7', '6', '5']},{suit:'kor',ranks:['10', '9', '8']},{suit:'karo',ranks:['9', '8']},{suit:'trefl',ranks:['8', '7', '6', '5']}];
     const s=[{suit:'pik',ranks:['A', 'K', 'Q', 'J']},{suit:'kor',ranks:['A', '7', '6']},{suit:'karo',ranks:['6', '5']},{suit:'trefl',ranks:['A', 'K', 'Q']}];
-    return tbl({info:'NT<br>Güney', score:'KG: 1<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'A',s:'karo',d:'south'}]}) + `<p>Güney karo A'yı oynamayı seçer ve eli kazanır.</p>`; } },
+    return tbl({info:'NT<br>Güney', score:'KG: 1<br>DB: 0', north:n, south:s, west:w, east:e, played:[{r:'K',s:'karo',d:'west'},{r:'4',s:'karo',d:'north'},{r:'7',s:'karo',d:'east'},{r:'A',s:'karo',d:'south'}]}) + `<p>Güney karo A'yı oynamayı seçer ve eli kazanır.</p>`; } },
   // 59 — app page 61
   { nav:"Briç Nedir?", html:`<p>Her iki el setini de kontrol etmek <strong>dekleran</strong> için güçlü bir avantajdır. <strong>Savunmacılar</strong> ise başlangıçta karanlıktadır.<br /><strong>Dekleran oyunu</strong> ağırlıklı olarak planlamaya odaklanır.<br /><strong>Savunma</strong> ise iletişime dayanır — hangi kartları oynadığınız aracılığıyla ortağınızla iletişim kurarsınız.<br />Birlikte, <strong>dekleran oyunu</strong> ve <strong>savunma</strong> Briç'in üç temel boyutundan ikisini oluşturur.</p>` },
   // 60 — app page 62
