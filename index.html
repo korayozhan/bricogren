@@ -491,6 +491,54 @@ body {
 .bid-call { font-weight:500; }
 .single-hand { display:inline-block; text-align:left; font-family:monospace; font-size:1em; line-height:1.7; padding:6px 12px; }
 .trump-note { margin-top:4px; font-size:.9em; color:#555; }
+
+/* ── DESKTOP LAYOUT (≥600px) ── */
+@media (min-width: 600px) {
+  body {
+    padding: 16px 24px;
+  }
+  .book {
+    max-width: 720px;
+    min-height: calc(100vh - 32px);
+  }
+  .navbar { height: 60px; }
+  .navbar .title { font-size: 20px; }
+  .navbar .nav-btn { font-size: 26px; }
+  .progress-bar { height: 5px; }
+  .content {
+    font-size: 18.5px;
+    padding: 22px 26px 14px;
+    line-height: 1.7;
+  }
+  /* Card table */
+  .table-diagram { height: 380px; }
+  .hands2-diag { height: 240px; }
+  .hand-north { left: 115px; right: 115px; }
+  .hand-south { left: 115px; right: 8px; }
+  .tbl-center { width: 170px; height: 155px; }
+  .tbl-info, .tbl-score { font-size: 13px; padding: 5px 9px; }
+  /* N/S mini cards */
+  .card-h { width: 29px; height: 46px; margin: 0 2px; padding: 3px 1px; }
+  .card-h .cn { font-size: 16px; }
+  .card-h .cs { font-size: 17px; }
+  .suit-gap { width: 9px; }
+  /* W/E mini cards */
+  .hand-west, .hand-east { gap: 5px; }
+  .suit-line { gap: 2px; }
+  .card-v { width: 25px; height: 38px; padding: 2px 1px; }
+  .card-v .cn { font-size: 13px; }
+  .card-v .cs { font-size: 13px; }
+  /* Played cards */
+  .pcard { width: 52px; height: 66px; border-radius: 7px; padding: 3px 4px; }
+  .pcard .prank { font-size: 21px; }
+  .pcard .psym  { font-size: 22px; }
+  /* List view */
+  .list-navbar { height: 60px; }
+  .list-navbar .list-title { font-size: 20px; }
+  .lesson-row { padding: 18px 22px; }
+  .lesson-row-name { font-size: 18px; }
+  .lesson-row-desc { font-size: 15px; }
+}
 </style>
 </head>
 <body>
