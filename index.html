@@ -1950,6 +1950,7 @@ function auction(str) {
   return html;
 }
 function hand(str, trump, highlight) {
+  if (DEALS[str]) return dp(str, 0, '');
   const suits = str.split('.');
   const syms = ['♠','♥','♦','♣'];
   const cls = ['s','h','d','c'];
