@@ -495,49 +495,54 @@ body {
 /* ── DESKTOP LAYOUT (≥600px) ── */
 @media (min-width: 600px) {
   body {
-    padding: 16px 24px;
+    padding: 0;
+    align-items: stretch;
   }
   .book {
-    max-width: 720px;
-    min-height: calc(100vh - 32px);
+    max-width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
   }
-  .navbar { height: 60px; }
-  .navbar .title { font-size: 20px; }
-  .navbar .nav-btn { font-size: 26px; }
-  .progress-bar { height: 5px; }
+  .navbar { height: 64px; }
+  .navbar .title { font-size: 22px; }
+  .navbar .nav-btn { font-size: 28px; }
+  .progress-bar { height: 6px; }
   .content {
-    font-size: 18.5px;
-    padding: 22px 26px 14px;
-    line-height: 1.7;
+    font-size: 20px;
+    padding: 28px 32px 18px;
+    line-height: 1.75;
   }
+  .content p { margin-bottom: 20px; }
   /* Card table */
-  .table-diagram { height: 380px; }
-  .hands2-diag { height: 240px; }
-  .hand-north { left: 115px; right: 115px; }
-  .hand-south { left: 115px; right: 8px; }
-  .tbl-center { width: 170px; height: 155px; }
-  .tbl-info, .tbl-score { font-size: 13px; padding: 5px 9px; }
+  .table-diagram { height: 480px; }
+  .hands2-diag { height: 300px; }
+  .hand-north { left: 150px; right: 150px; }
+  .hand-south { left: 150px; right: 10px; }
+  .tbl-center { width: 220px; height: 200px; }
+  .tbl-info, .tbl-score { font-size: 15px; padding: 6px 11px; top: 10px; left: 10px; }
+  .tbl-score { top: auto; bottom: 10px; }
   /* N/S mini cards */
-  .card-h { width: 29px; height: 46px; margin: 0 2px; padding: 3px 1px; }
-  .card-h .cn { font-size: 16px; }
-  .card-h .cs { font-size: 17px; }
-  .suit-gap { width: 9px; }
+  .card-h { width: 36px; height: 58px; margin: 0 2px; padding: 4px 2px; border-radius: 4px; }
+  .card-h .cn { font-size: 20px; }
+  .card-h .cs { font-size: 21px; }
+  .suit-gap { width: 12px; }
   /* W/E mini cards */
-  .hand-west, .hand-east { gap: 5px; }
+  .hand-west, .hand-east { gap: 6px; }
   .suit-line { gap: 2px; }
-  .card-v { width: 25px; height: 38px; padding: 2px 1px; }
-  .card-v .cn { font-size: 13px; }
-  .card-v .cs { font-size: 13px; }
+  .card-v { width: 32px; height: 50px; padding: 3px 2px; border-radius: 4px; }
+  .card-v .cn { font-size: 17px; }
+  .card-v .cs { font-size: 17px; }
   /* Played cards */
-  .pcard { width: 52px; height: 66px; border-radius: 7px; padding: 3px 4px; }
-  .pcard .prank { font-size: 21px; }
-  .pcard .psym  { font-size: 22px; }
+  .pcard { width: 68px; height: 88px; border-radius: 9px; padding: 4px 5px; }
+  .pcard .prank { font-size: 28px; }
+  .pcard .psym  { font-size: 30px; }
   /* List view */
-  .list-navbar { height: 60px; }
-  .list-navbar .list-title { font-size: 20px; }
-  .lesson-row { padding: 18px 22px; }
-  .lesson-row-name { font-size: 18px; }
-  .lesson-row-desc { font-size: 15px; }
+  .list-navbar { height: 64px; }
+  .list-navbar .list-title { font-size: 22px; }
+  .lesson-row { padding: 20px 28px; }
+  .lesson-row-name { font-size: 20px; }
+  .lesson-row-desc { font-size: 16px; }
 }
 </style>
 </head>
